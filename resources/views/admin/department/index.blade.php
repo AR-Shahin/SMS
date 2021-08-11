@@ -191,7 +191,7 @@
         .then(function(res){
             getAllDepartment();
              $('#editModal').modal('toggle')
-            setSwalMessage('Success','Data Update Successfully!','success',);
+             setSuccessMessage('Data Update Successfully!');
             //console.log(res);
         })
     })
