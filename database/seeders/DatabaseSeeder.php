@@ -31,7 +31,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             DepartmentSeeder::class,
-            SessionSeeder::class
+            SessionSeeder::class,
+            CourseSeeder::class
         ]);
     }
 }
