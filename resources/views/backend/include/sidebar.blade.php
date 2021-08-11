@@ -58,6 +58,23 @@
         @endauth
 
         <!-- Department Admin -->
+
+        @auth('dept_admin')
+        <li class="nav-item">
+            <a href="{{ route('dept-admin.dashboard') }}" class="nav-link">
+            <i class="nav-icon fa fa-tachometer-alt"></i>
+            <p>
+                Dashboard
+            </p>
+            </a>
+        </li>
+        <li>
+            <form id="logout-form" action="{{ route('dept-admin.logout') }}" method="POST" >
+                @csrf
+                <button class="btn btn-success btn-block text-left"> <i class="fa fa-sign-out-alt"></i> Logout</button>
+            </form>
+        </li>
+        @endauth
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

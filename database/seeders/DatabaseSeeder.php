@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\DepartmentAdmin;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -19,6 +20,12 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Super Admin',
             'email' => 'admin@mail.com',
+            'password' => bcrypt('password')
+        ]);
+
+        DepartmentAdmin::create([
+            'name' => 'Department Admin',
+            'email' => 'dept-admin@mail.com',
             'password' => bcrypt('password')
         ]);
     }
