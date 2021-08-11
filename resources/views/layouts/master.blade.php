@@ -12,7 +12,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-@includeIf('backend.include.breadcumb')
+{{-- @includeIf('backend.include.breadcumb') --}}
 
     <!-- Main content -->
     <section class="content p-4">
