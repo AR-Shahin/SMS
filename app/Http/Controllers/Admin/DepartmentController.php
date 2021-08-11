@@ -19,7 +19,7 @@ class DepartmentController extends Controller
     function store(Request $request)
     {
         $request->validate([
-            'name' => ['required']
+            'name' => ['required', 'unique:departments']
         ]);
         Department::create($request->all());
     }

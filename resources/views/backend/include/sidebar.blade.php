@@ -57,6 +57,14 @@
             </p>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{ route('admin.session.index') }}" class="nav-link">
+            <i class="nav-icon fa fa-tachometer-alt"></i>
+            <p>
+                Session
+            </p>
+            </a>
+        </li>
         <li>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" >
                 @csrf
