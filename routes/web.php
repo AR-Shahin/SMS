@@ -5,9 +5,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DepartmentAdminController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\SemesterController;
 use App\Http\Controllers\Admin\SessionController;
+use App\Models\DepartmentAdmin;
 
 Route::get('/', function () {
     return view('admin.auth.login');
@@ -35,4 +37,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     # Session
     Route::resource('course', CourseController::class);
     Route::get('course-fetch', [CourseController::class, 'courseFetch'])->name('course.fetch');
+
+    # Department Admin
+    Route::resource('d-admin', DepartmentAdminController::class);
+    Route::get('d-admin-fetch', [DepartmentAdminController::class, 'departmentAdminFetch'])->name('d-admin.fetch');
 });

@@ -26,7 +26,8 @@ class DatabaseSeeder extends Seeder
         DepartmentAdmin::create([
             'name' => 'Department Admin',
             'email' => 'dept-admin@mail.com',
-            'password' => bcrypt('password')
+            'password' => bcrypt('password'),
+            'department_id' => 1
         ]);
 
         $this->call([
