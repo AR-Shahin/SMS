@@ -9,4 +9,9 @@ class Course extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
 }

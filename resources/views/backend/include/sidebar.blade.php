@@ -74,10 +74,10 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('admin.session.index') }}" class="nav-link">
-            <i class="nav-icon fa fa-tachometer-alt"></i>
+            <a href="{{ route('admin.course.index') }}" class="nav-link">
+            <i class="nav-icon fa fa-book"></i>
             <p>
-                Session
+                Course
             </p>
             </a>
         </li>
