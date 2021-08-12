@@ -108,6 +108,14 @@
             </p>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{ route('dept-admin.course.index') }}" class="nav-link">
+            <i class="nav-icon fa fa-book"></i>
+            <p>
+                Assign Course
+            </p>
+            </a>
+        </li>
         <li>
             <form id="logout-form" action="{{ route('dept-admin.logout') }}" method="POST" >
                 @csrf
