@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\DepartmentAdmin;
+use App\Models\Teacher;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -44,6 +45,19 @@ class UserSeeder extends Seeder
             'email' => 'law@mail.com',
             'password' => 'password',
             'department_id' => 5
+        ]);
+
+        Teacher::create([
+            'name' => 'Teacher CSE',
+            'email' => 'teacher@mail.com',
+            'password' => 'password',
+            'department_id' => 1
+        ]);
+        Teacher::create([
+            'name' => 'Teacher EEE',
+            'email' => 'eee@mail.com',
+            'password' => 'password',
+            'department_id' => 2
         ]);
     }
 }

@@ -132,6 +132,17 @@
             </form>
         </li>
         @endauth
+
+        <!-- Teacher -->
+
+        @auth('teacher')
+        <li>
+            <form id="logout-form" action="{{ route('dept-admin.logout') }}" method="POST" >
+                @csrf
+                <button class="btn btn-success btn-block text-left"> <i class="fa fa-sign-out-alt"></i> Logout</button>
+            </form>
+        </li>
+        @endauth
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
