@@ -66,10 +66,10 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('admin.session.index') }}" class="nav-link">
+            <a href="{{ route('admin.semester.index') }}" class="nav-link">
             <i class="nav-icon fa fa-tachometer-alt"></i>
             <p>
-                Session
+                Semester
             </p>
             </a>
         </li>

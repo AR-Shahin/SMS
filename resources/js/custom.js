@@ -18,3 +18,10 @@ globalThis.setErrorMessage = () => {
     'error'
     )
 }
+globalThis.setWaringMessage = (title = 'Data Already Exists!!!') => {
+    Swal.fire(
+    'Warning!',
+    title,
+    'info'
+    )
+}
