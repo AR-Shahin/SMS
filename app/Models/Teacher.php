@@ -20,8 +20,8 @@ class Teacher extends Authenticatable
         'name',
         'email',
         'password',
+        'department_id'
     ];
-
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -40,4 +40,13 @@ class Teacher extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
+
+    function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
 }

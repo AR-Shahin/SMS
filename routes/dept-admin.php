@@ -4,6 +4,7 @@ use App\Http\Controllers\Department\Auth\LoginController;
 use App\Http\Controllers\Department\CourseSemesterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Department\DashboardController;
+use App\Http\Controllers\Department\TeacherController;
 
 Route::prefix('dept-admin')->name('dept-admin.')->group(function () {
 
@@ -17,5 +18,9 @@ Route::prefix('dept-admin')->name('dept-admin.')->group(function () {
         # Semester Course
         Route::resource('course', CourseSemesterController::class);
         Route::get('course-fetch', [CourseSemesterController::class, 'courseSemesterFetch'])->name('course-fetch');
+
+        # Teacher
+        Route::resource('teacher', TeacherController::class);
+        Route::get('teacher-fetch', [TeacherController::class, 'teacherFetch'])->name('teacher-fetch');
     });
 });

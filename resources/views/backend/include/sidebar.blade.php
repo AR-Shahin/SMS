@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
       <img src="{{ asset('uploads/backend/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">SMS</span>
     </a>
 
     <!-- Sidebar -->
@@ -13,7 +13,7 @@
           <img src="{{ asset('uploads/backend/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Name</a>
+          <a href="#" class="d-block">{{ auth()->user()->name }}</a>
         </div>
       </div>
 
@@ -113,6 +113,14 @@
             <i class="nav-icon fa fa-book"></i>
             <p>
                 Assign Course
+            </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route('dept-admin.teacher.index') }}" class="nav-link">
+            <i class="nav-icon fa fa-users"></i>
+            <p>
+                Teacher
             </p>
             </a>
         </li>
