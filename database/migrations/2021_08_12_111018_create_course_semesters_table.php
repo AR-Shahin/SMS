@@ -17,6 +17,7 @@ class CreateCourseSemestersTable extends Migration
             $table->id();
             $table->foreignId('course_id')->constrained('courses')->onDelete('cascade');
             $table->foreignId('semester_id')->constrained('semesters')->onDelete('cascade');
+            $table->foreignId('department_id')->nullable();
             $table->timestamps();
         });
     }

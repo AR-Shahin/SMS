@@ -220,7 +220,7 @@
             setWaringMessage()
             return null
            }
-           // getAllcourse();
+            getAllcourse();
             semesterError.text('')
             courseError.text('')
              $('#course_id').val('')

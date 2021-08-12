@@ -25,9 +25,11 @@ class CourseSemesterController extends Controller
         $deptId =  auth('dept_admin')->user()->department_id;
 
         return CourseSemester::with(['course.department', 'semester.session'])
-            ->whereHas('course', function ($q) use ($deptId) {
-                $q->whereDepartmentId($deptId);
-            })->get();
+            // ->whereHas('course', function ($q) use ($deptId) {
+            //     $q->whereDepartmentId($deptId);
+            // })
+            ->whereDepartmentId($deptId)
+            ->get();
     }
     function store(Request $request)
     {
@@ -36,7 +38,9 @@ class CourseSemesterController extends Controller
             'semester_id' => ['required']
         ]);
 
-        CourseSemester::create($request->all());
+        $data = $request->all();
+        $data['department_id'] = auth('dept_admin')->user()->department_id;
+        CourseSemester::create($data);
     }
 
     public function destroy($department_admin)
