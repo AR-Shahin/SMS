@@ -23,13 +23,20 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password')
         ]);
 
+        // CSE
         DepartmentAdmin::create([
             'name' => 'Department Admin',
             'email' => 'dept-admin@mail.com',
             'password' => 'password',
             'department_id' => 1
         ]);
-
+        // eee
+        DepartmentAdmin::create([
+            'name' => 'EEE Admin',
+            'email' => 'eee@mail.com',
+            'password' => 'password',
+            'department_id' => 2
+        ]);
         $this->call([
             DepartmentSeeder::class,
             SessionSeeder::class,

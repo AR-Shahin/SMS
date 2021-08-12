@@ -9,4 +9,13 @@ class CourseSemester extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
+    function semester()
+    {
+        return $this->belongsTo(Semester::class);
+    }
 }

@@ -16,6 +16,6 @@ Route::prefix('dept-admin')->name('dept-admin.')->group(function () {
 
         # Semester Course
         Route::resource('course', CourseSemesterController::class);
-        Route::get('course-fetch', [CourseSemesterController::class, 'courseSemesterFetch'])->name('course-fetch.fetch');
+        Route::get('course-fetch', [CourseSemesterController::class, 'courseSemesterFetch'])->name('course-fetch');
     });
 });

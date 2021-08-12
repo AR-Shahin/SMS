@@ -24,5 +24,15 @@ class CourseSeeder extends Seeder
                 'credit' => 3
             ]);
         }
+        $eee = ['EEE1', 'EEE2', 'EEE3', 'EEE4'];
+        $code = ['EEE1', 'EEE2', 'EEE3', 'EEE4'];
+        for ($i = 0; $i < 4; $i++) {
+            Course::create([
+                'department_id' => 2,
+                'name' => $eee[$i],
+                'code' => $eee[$i],
+                'credit' => 3
+            ]);
+        }
     }
 }

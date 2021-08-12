@@ -15,6 +15,8 @@
                         <thead>
                         <tr>
                             <th>SL</th>
+                            <th>Semester</th>
+                            <th>Session</th>
                             <th>Department</th>
                             <th>Name</th>
                             <th>Code</th>
@@ -32,7 +34,7 @@
     <div class="col-12 col-md-4">
         <div class="card">
             <div class="card-header">
-                <h4 class="text-info">Add Course</h4>
+                <h4 class="text-info">Assign Course for <b>{{ auth('dept_admin')->user()->department->name }}</b> Department</h4>
             </div>
             <div class="card-body">
                 <form id="catAddForm">
@@ -128,76 +130,78 @@
 <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
 <script type="text/javascript">
     //fetch
-    // function table_data_row(data) {
-    //         var	rows = '';
-    //         var i = 0;
-    //         $.each( data, function( key, value ) {
-    //             value.id
-    //             rows = rows + '<tr>';
-    //             rows = rows + '<td>'+ ++i +'</td>';
-    //             rows = rows + '<td>'+value.department.name+'</td>';
-    //             rows = rows + '<td>'+value.name+'</td>';
-    //             rows = rows + '<td>'+value.code+'</td>';
-    //             rows = rows + '<td>'+value.credit+'</td>';
-    //             rows = rows + '<td data-id="'+value.id+'" class="text-center">';
-    //             rows = rows + '<a class="btn btn-sm btn-info text-light" id="editRow" data-id="'+value.id+'" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></a> ';
-    //             rows = rows + '<a class="btn btn-sm btn-danger text-light"  id="deleteRow" data-id="'+value.id+'" ><i class="fa fa-trash"></i></a> ';
-    //             rows = rows + '</td>';
-    //             rows = rows + '</tr>';
-    //         });
-    //         $("#currencyTable").html(rows);
-    // }
-    //     function getAllcourse(){
-    //         axios.get("{{ route('admin.course.fetch') }}")
-    //         .then(function(res){
-    //            //console.log(res);
-    //             table_data_row(res.data);
-    //          $('.dataTable').DataTable();
-    //         })
-    //     }
-    //     getAllcourse();
+    function table_data_row(data) {
+            var	rows = '';
+            var i = 0;
+            $.each( data, function( key, value ) {
+                // value.id
+                rows = rows + '<tr>';
+                rows = rows + '<td>'+ ++i +'</td>';
+                rows = rows + '<td>'+value.semester.name+'</td>';
+                rows = rows + '<td>'+value.semester.session.name+'</td>';
+                rows = rows + '<td>'+value.course.department.name+'</td>';
+                rows = rows + '<td>'+value.course.name+'</td>';
+                rows = rows + '<td>'+value.course.code+'</td>';
+                rows = rows + '<td>'+value.course.credit+'</td>';
+                rows = rows + '<td data-id="'+value.id+'" class="text-center">';
+                // rows = rows + '<a class="btn btn-sm btn-info text-light" id="editRow" data-id="'+value.id+'" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></a> ';
+                rows = rows + '<a class="btn btn-sm btn-danger text-light"  id="deleteRow" data-id="'+value.id+'" ><i class="fa fa-trash"></i></a> ';
+                rows = rows + '</td>';
+                rows = rows + '</tr>';
+            });
+            $("#currencyTable").html(rows);
+    }
+        function getAllcourse(){
+            axios.get("{{ route('dept-admin.course-fetch') }}")
+            .then(function(res){
+             // console.log(res);
+                table_data_row(res.data);
+             $('.dataTable').DataTable();
+            })
+        }
+        getAllcourse();
     //     //delete currency
-    //     $('body').on('click','#deleteRow',function (e) {
-    //         e.preventDefault();
-    //          let id = $(this).data('id')
-    //         let url = base_path + '/admin/course/' + id
-    //         const swalWithBootstrapButtons = Swal.mixin({
-    //             customClass: {
-    //                 confirmButton: 'btn btn-success mx-2',
-    //                 cancelButton: 'btn btn-danger'
-    //             },
-    //             buttonsStyling: false
-    //         })
-    //         swalWithBootstrapButtons.fire({
-    //             title: 'Are you sure?',
-    //             text: "You won't be able to revert this!",
-    //             icon: 'warning',
-    //             showCancelButton: true,
-    //             confirmButtonText: 'Yes, delete it!',
-    //             cancelButtonText: 'No, cancel!',
-    //             reverseButtons: true
-    //         }).then((result) => {
-    //             if (result.isConfirmed) {
-    //           axios.delete(url).then(function(r){
-    //             getAllcourse();
-    //              swalWithBootstrapButtons.fire(
-    //                         'Deleted!',
-    //                         'Your data has been deleted.',
-    //                         'success'
-    //                     )
-    //         });
-    //         } else if (
-    //                 /* Read more about handling dismissals below */
-    //         result.dismiss === Swal.DismissReason.cancel
-    //         ) {
-    //             swalWithBootstrapButtons.fire(
-    //                 'Cancelled',
-    //                 'Your file is safe :)',
-    //                 'error'
-    //             )
-    //         }
-    //     })
-    //     });
+        $('body').on('click','#deleteRow',function (e) {
+            e.preventDefault();
+             let id = $(this).data('id')
+            let url = base_path + '/dept-admin/course/' + id
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success mx-2',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+              axios.delete(url).then(function(r){
+                getAllcourse();
+                 swalWithBootstrapButtons.fire(
+                            'Deleted!',
+                            'Your data has been deleted.',
+                            'success'
+                        )
+            });
+            } else if (
+                    /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'Cancelled',
+                    'Your file is safe :)',
+                    'error'
+                )
+            }
+        })
+        });
         //store
         $('body').on('submit','#catAddForm',function(e){
             // console.log('ok');

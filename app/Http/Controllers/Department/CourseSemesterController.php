@@ -8,6 +8,7 @@ use App\Models\Department;
 use Illuminate\Http\Request;
 use App\Models\CourseSemester;
 use App\Http\Controllers\Controller;
+use Whoops\Run;
 
 class CourseSemesterController extends Controller
 {
@@ -20,7 +21,13 @@ class CourseSemesterController extends Controller
     }
     function CourseSemesterFetch()
     {
-        return CourseSemester::whereHas('department')->with('department')->latest()->get();
+        //return  $dept =  auth('dept_admin')->user()->department->name;
+        $deptId =  auth('dept_admin')->user()->department_id;
+
+        return CourseSemester::with(['course.department', 'semester.session'])
+            ->whereHas('course', function ($q) use ($deptId) {
+                $q->whereDepartmentId($deptId);
+            })->get();
     }
     function store(Request $request)
     {
