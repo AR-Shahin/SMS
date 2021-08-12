@@ -14,6 +14,7 @@ class CourseSeeder extends Seeder
      */
     public function run()
     {
+        # CSE
         $cse = ['Programming Language C', 'Programming Language JAVA', 'Computer Fundamental', 'Computer Architecture'];
         $code = ['CSE101', 'CSE102', 'CSE103', 'CSE104'];
         for ($i = 0; $i < 4; $i++) {
@@ -24,14 +25,28 @@ class CourseSeeder extends Seeder
                 'credit' => 3
             ]);
         }
-        $eee = ['EEE1', 'EEE2', 'EEE3', 'EEE4'];
+
+        # EEE
+        $eee = ['Circuit 1', 'Circuit 2', 'Circuit 3 ', 'Circuit 4'];
         $code = ['EEE1', 'EEE2', 'EEE3', 'EEE4'];
         for ($i = 0; $i < 4; $i++) {
             Course::create([
                 'department_id' => 2,
                 'name' => $eee[$i],
-                'code' => $eee[$i],
+                'code' => $code[$i],
                 'credit' => 3
+            ]);
+        }
+
+        # LAW
+        $law = ['LAW1', 'LAW2', 'LAW3', 'LAW4'];
+        $code =  ['LAW1', 'LAW2', 'LAW3', 'LAW4'];
+        for ($i = 0; $i < 4; $i++) {
+            Course::create([
+                'department_id' => 2,
+                'name' => $law[$i],
+                'code' => $law[$i],
+                'credit' => 5
             ]);
         }
     }

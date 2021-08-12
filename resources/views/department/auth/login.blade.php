@@ -16,7 +16,7 @@
                 @csrf
                 <div class="input-group mb-3">
                     <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                        value="{{ old('email') ? old('email') : 'dept-admin@mail.com' }}" placeholder="Email">
+                        value="{{ old('email') ? old('email') : 'cse@mail.com' }}" placeholder="Email">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
