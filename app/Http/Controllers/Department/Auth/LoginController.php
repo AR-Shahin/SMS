@@ -48,4 +48,10 @@ class LoginController extends Controller
     {
         return Auth::guard('dept_admin');
     }
+
+    public function logout()
+    {
+        auth('dept_admin')->logout();
+        return redirect()->route('dept-admin.login');
+    }
 }
