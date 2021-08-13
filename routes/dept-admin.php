@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Department\AssignTeacherController;
 use App\Http\Controllers\Department\Auth\LoginController;
 use App\Http\Controllers\Department\CourseSemesterController;
 use Illuminate\Support\Facades\Route;
@@ -22,5 +23,10 @@ Route::prefix('dept-admin')->name('dept-admin.')->group(function () {
         # Teacher
         Route::resource('teacher', TeacherController::class);
         Route::get('teacher-fetch', [TeacherController::class, 'teacherFetch'])->name('teacher-fetch');
+
+        # Teacher Assign Course
+        Route::get('teacher-course', [AssignTeacherController::class, 'teacherAssignCourse'])->name('teacher-course');
+        Route::post('teacher-course', [AssignTeacherController::class, 'teacherAssignCourseStore'])->name('teacher-course');
+        Route::get('fetch-teacher-course', [AssignTeacherController::class, 'fetchTeacherCourses'])->name('fetch-teacher-course');
     });
 });

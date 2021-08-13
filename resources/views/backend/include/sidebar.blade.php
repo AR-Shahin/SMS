@@ -67,6 +67,14 @@
             </a>
         </li>
         <li class="nav-item">
+            <a href="{{ route('admin.year.index') }}" class="nav-link">
+            <i class="nav-icon fa fa-tachometer-alt"></i>
+            <p>
+                Year
+            </p>
+            </a>
+        </li>
+        <li class="nav-item">
             <a href="{{ route('admin.semester.index') }}" class="nav-link">
             <i class="nav-icon fa fa-tachometer-alt"></i>
             <p>
@@ -122,6 +130,14 @@
             <i class="nav-icon fa fa-users"></i>
             <p>
                 Teacher
+            </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route('dept-admin.teacher-course') }}" class="nav-link">
+            <i class="nav-icon fa fa-book"></i>
+            <p>
+                Assign Teacher
             </p>
             </a>
         </li>

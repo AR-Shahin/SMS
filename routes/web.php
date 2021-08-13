@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\DepartmentAdminController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\SemesterController;
 use App\Http\Controllers\Admin\SessionController;
+use App\Http\Controllers\Admin\YearController;
 use App\Models\DepartmentAdmin;
 
 Route::get('/', function () {
@@ -34,11 +35,15 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('semester', SemesterController::class);
     Route::get('semester-fetch', [SemesterController::class, 'semesterFetch'])->name('semester.fetch');
 
-    # Session
+    # Course
     Route::resource('course', CourseController::class);
     Route::get('course-fetch', [CourseController::class, 'courseFetch'])->name('course.fetch');
 
     # Department Admin
     Route::resource('d-admin', DepartmentAdminController::class);
     Route::get('d-admin-fetch', [DepartmentAdminController::class, 'departmentAdminFetch'])->name('d-admin.fetch');
+
+    # Year
+    Route::resource('year', YearController::class);
+    Route::get('year-fetch', [YearController::class, 'yearFetch'])->name('year.fetch');
 });

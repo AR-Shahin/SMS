@@ -30,7 +30,8 @@ class DatabaseSeeder extends Seeder
             SessionSeeder::class,
             CourseSeeder::class,
             SemesterSeeder::class,
-            TeacherSeeder::class
+            TeacherSeeder::class,
+            YearSeeder::class
         ]);
     }
 }
