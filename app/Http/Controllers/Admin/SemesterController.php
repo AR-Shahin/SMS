@@ -5,24 +5,25 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Semester;
 use App\Models\Session;
+use App\Models\Year;
 use Illuminate\Http\Request;
 
 class SemesterController extends Controller
 {
     public function index()
     {
-        $sessions = Session::get();
-        return view('admin.semester.index', compact('sessions'));
+        $years = Year::with('session')->get();
+        return view('admin.semester.index', compact('years'));
     }
     function semesterFetch()
     {
-        return Semester::with('session')->latest()->get();
+        return Semester::with('year.session')->latest()->get();
     }
     function store(Request $request)
     {
         $request->validate([
             'name' => ['required'],
-            'session_id' => ['required']
+            'year_id' => ['required']
         ]);
 
         if (!$this->checkExistsSemester($request)) {
@@ -53,7 +54,7 @@ class SemesterController extends Controller
 
     protected function checkExistsSemester($request): bool
     {
-        $semester = Semester::whereSessionId($request->session_id)
+        $semester = Semester::whereYearId($request->session_id)
             ->whereName($request->name)->first();
         if ($semester) {
             return false;
@@ -64,7 +65,7 @@ class SemesterController extends Controller
 
     protected function checkExistsSemesterWhenUpdate($request): bool
     {
-        $semester = Semester::whereSessionId($request->session_id)
+        $semester = Semester::whereYearId($request->session_id)
             ->whereName($request->name)
             ->where('id', '!=', $request->id)
             ->first();

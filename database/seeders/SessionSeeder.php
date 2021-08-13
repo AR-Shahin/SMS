@@ -14,12 +14,16 @@ class SessionSeeder extends Seeder
      */
     public function run()
     {
-        $sessions = ['2017-2018', '2018-2019', '2019-2020', '2020-2021', '2021-2022'];
+        // $sessions = ['2017-2018', '2018-2019', '2019-2020', '2020-2021', '2021-2022'];
 
-        for ($i = 0; $i < count($sessions); $i++) {
-            Session::create([
-                'name' => $sessions[$i]
-            ]);
-        }
+        // for ($i = 0; $i < count($sessions); $i++) {
+        //     Session::create([
+        //         'name' => $sessions[$i]
+        //     ]);
+        // }
+
+        Session::create([
+            'name' => '2021-2022'
+        ]);
     }
 }

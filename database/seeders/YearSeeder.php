@@ -14,30 +14,51 @@ class YearSeeder extends Seeder
      */
     public function run()
     {
-        Year::create([
-            'session_id' => 5,
-            'name' => '1st'
-        ]);
+        // Year::create([
+        //     'session_id' => 5,
+        //     'name' => '1st'
+        // ]);
+
+        // Year::create([
+        //     'session_id' => 5,
+        //     'name' => '2nd'
+        // ]);
+        // Year::create([
+        //     'session_id' => 4,
+        //     'name' => '1st'
+        // ]);
+        // Year::create([
+        //     'session_id' => 4,
+        //     'name' => '2nd'
+        // ]);
+        // Year::create([
+        //     'session_id' => 3,
+        //     'name' => '1st'
+        // ]);
+        // Year::create([
+        //     'session_id' => 3,
+        //     'name' => '2nd'
+        // ]);
 
         Year::create([
-            'session_id' => 5,
-            'name' => '2nd'
-        ]);
-        Year::create([
-            'session_id' => 4,
+            'session_id' => 1,
             'name' => '1st'
         ]);
         Year::create([
-            'session_id' => 4,
+            'session_id' => 1,
             'name' => '2nd'
         ]);
         Year::create([
-            'session_id' => 3,
-            'name' => '1st'
+            'session_id' => 1,
+            'name' => '3rd'
         ]);
         Year::create([
-            'session_id' => 3,
-            'name' => '2nd'
+            'session_id' => 1,
+            'name' => '4th'
+        ]);
+        Year::create([
+            'session_id' => 1,
+            'name' => '5th'
         ]);
     }
 }

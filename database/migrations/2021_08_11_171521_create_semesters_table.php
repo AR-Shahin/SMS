@@ -15,7 +15,8 @@ class CreateSemestersTable extends Migration
     {
         Schema::create('semesters', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('session_id')->constrained('sessions')->onDelete('cascade');
+            //   $table->foreignId('session_id')->constrained('sessions')->onDelete('cascade');
+            $table->foreignId('year_id')->nullable();
             $table->string('name', 10);
             $table->timestamps();
         });

@@ -13,4 +13,9 @@ class Semester extends Model
     {
         return $this->belongsTo(Session::class);
     }
+
+    public function year()
+    {
+        return $this->belongsTo(Year::class);
+    }
 }

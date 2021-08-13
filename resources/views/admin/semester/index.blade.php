@@ -16,6 +16,7 @@
                         <tr>
                             <th>SL</th>
                             <th>Session</th>
+                            <th>Year</th>
                             <th>Name</th>
                             <th>Actions</th>
                         </tr>
@@ -34,12 +35,12 @@
             </div>
             <div class="card-body">
                 <form id="catAddForm">
-                    <label for="">Session</label>
+                    <label for="">Year</label>
                     <div class="form-group">
                        <select name="" id="session_id" class="form-control">
-                           <option value="">Select A Session</option>
-                           @foreach ($sessions as $session)
-                           <option value="{{ $session->id }}">{{ $session->name }}</option>
+                           <option value="">Select A Years</option>
+                           @foreach ($years as $year)
+                           <option value="{{ $year->id }}">{{ $year->name }} | {{ $year->session->name }}</option>
                            @endforeach
                        </select>
                         <span class="text-danger" id="sessionError"></span>
@@ -70,12 +71,12 @@
 
             <div class="modal-body">
                 <form id="catUpdateForm" >
-                    <label for="">Session</label>
+                    <label for="">Year</label>
                     <div class="form-group">
                        <select name="" id="e_session_id" class="form-control">
-                           <option value="">Select A Session</option>
-                           @foreach ($sessions as $session)
-                           <option value="{{ $session->id }}">{{ $session->name }}</option>
+                           <option value="">Select A Year</option>
+                           @foreach ($years as $year)
+                           <option value="{{ $year->id }}">{{ $year->name }}</option>
                            @endforeach
                        </select>
                         <span class="text-danger" id="sessionError"></span>
@@ -107,7 +108,8 @@
                 value.id
                 rows = rows + '<tr>';
                 rows = rows + '<td>'+ ++i +'</td>';
-                rows = rows + '<td>'+value.session.name+'</td>';
+                rows = rows + '<td>'+value.year.session.name+'</td>';
+                rows = rows + '<td>'+value.year.name+'</td>';
                 rows = rows + '<td>'+value.name+'</td>';
                 rows = rows + '<td data-id="'+value.id+'" class="text-center">';
                 rows = rows + '<a class="btn btn-sm btn-info text-light" id="editRow" data-id="'+value.id+'" data-toggle="modal" data-target="#editModal">Edit</a> ';
@@ -178,7 +180,7 @@
         sessionErr.text('')
         axios.post("{{ route('admin.semester.store') }}", {
             name: $('#add_cat_name').val(),
-            session_id: $('#session_id').val(),
+            year_id: $('#session_id').val(),
         })
         .then(function (response) {
            // console.log(response);

@@ -15,38 +15,56 @@ class SemesterSeeder extends Seeder
      */
     public function run()
     {
-        $semesters = ['First', 'Second'];
+        // $semesters = ['First', 'Second'];
+        // Semester::create([
+        //     'year_id' => 5,
+        //     'name' => $semesters[0]
+        // ]);
+        // Semester::create([
+        //     'year_id' => 5,
+        //     'name' => $semesters[1]
+        // ]);
+        // Semester::create([
+        //     'year_id' => 4,
+        //     'name' => $semesters[0]
+        // ]);
+        // Semester::create([
+        //     'year_id' => 4,
+        //     'name' => $semesters[1]
+        // ]);
+        // Semester::create([
+        //     'year_id' => 3,
+        //     'name' => $semesters[0]
+        // ]);
+        // Semester::create([
+        //     'year_id' => 3,
+        //     'name' => $semesters[1]
+        // ]);
+        // Semester::create([
+        //     'year_id' => 2,
+        //     'name' => $semesters[0]
+        // ]);
+        // Semester::create([
+        //     'year_id' => 5,
+        //     'name' => $semesters[1]
+        // ]);
+
         Semester::create([
-            'session_id' => 5,
-            'name' => $semesters[0]
+            'year_id' => 1,
+            'name' => 'Level 1'
         ]);
         Semester::create([
-            'session_id' => 5,
-            'name' => $semesters[1]
+            'year_id' => 1,
+            'name' => 'Level 2'
+        ]);
+
+        Semester::create([
+            'year_id' => 2,
+            'name' => 'Level 1'
         ]);
         Semester::create([
-            'session_id' => 4,
-            'name' => $semesters[0]
-        ]);
-        Semester::create([
-            'session_id' => 4,
-            'name' => $semesters[1]
-        ]);
-        Semester::create([
-            'session_id' => 3,
-            'name' => $semesters[0]
-        ]);
-        Semester::create([
-            'session_id' => 3,
-            'name' => $semesters[1]
-        ]);
-        Semester::create([
-            'session_id' => 2,
-            'name' => $semesters[0]
-        ]);
-        Semester::create([
-            'session_id' => 5,
-            'name' => $semesters[1]
+            'year_id' => 2,
+            'name' => 'Level 2'
         ]);
     }
 }
